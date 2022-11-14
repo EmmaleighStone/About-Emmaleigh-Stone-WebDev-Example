@@ -1,0 +1,133 @@
+/*Name: Emmaleigh Stone*/
+/*Class: CIS 131*/
+/*Section: W01*/
+/*Date: 8/20/22*/
+* {
+  font-family: "Quicksand", sans-serif;
+    color: #fefae0;
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  font-weight: 400;
+}
+body {
+  background-color: #f4a261;
+  color: #264653;
+  min-height: 100%;
+}
+/*header {
+  height: 100px;
+  width: 100%;
+  color: white;
+  background-color: #f4a261;
+}
+header h1 {
+  font-size: 50px;
+  float: left;
+  text-align: left;
+  padding: 2.5% 2.5% 5% 1%;
+  background-color: #264653;
+  color: #fefae0;
+  width: 47.5%;
+  font-weight: 600;
+}
+header aside nav {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 47.5%;
+  background-color: #264653;
+  color: #fefae0;
+  font-size: 50px;
+  padding: 2.5% 0% 5% 1.5%;
+  font-weight: 100;
+}
+header aside nav a {
+  font-weight: 100;
+  text-decoration: none;
+    background-color: #264653;
+    color: #fefae0;
+}
+header aside nav a:hover {
+  transition: 1s;
+  color: #cdb4db;
+  font-weight: 200;
+}
+
+*/
+header {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  background-color: #264653;
+  border-bottom: 1px solid;
+}
+
+header a {
+  text-decoration: none;
+  font-variant: small-caps;
+  font-weight: 200;
+  font-size: 50px;
+  letter-spacing: 1.5px;
+}
+header a:hover {
+  font-weight: 300;
+  transition: 0.2s;
+}
+/***************END OF HEADER STYLING***************/
+/***************BEGINNING OF NAVIGATION STYLING***************/
+.main-menu {
+  background-color: #264653;
+  padding: 12.5px;
+  border-bottom: 1px solid;
+}
+.main-menu .flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  list-style-type: none;
+  width: 100%;
+  background-color: #264653;
+}
+.main-menu .flex li a {
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px 15px;
+}
+.main-menu .flex li a:hover {
+  font-weight: 200;
+  border: #fefae0 0.1px solid;
+  transition: 0.2s;
+}
+
+
+
+div.section {
+  margin-top: 10%;
+  margin-left: 5%;
+  float: left;
+  width: 70%;
+  background-color: #fefae0;
+  color: #264653;
+  height: 100px;
+}
+section h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  color: #264653;
+}
+section p {
+  text-align: left;
+  font-size: 17.5px;
+  padding: 2% 5%;
+  color: #264653;
+}
