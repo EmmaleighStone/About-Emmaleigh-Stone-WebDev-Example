@@ -1,0 +1,126 @@
+/* Program Name: Exam 3
+Programmer Name: Emmaleigh Stone
+Date: 11/6/2022 */
+
+/* styling for the whole page */
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* styling for the body elements */
+body
+{
+    background-color: #0d0f17;
+}
+
+/* styling for the header elements */
+header
+{
+    width: 100%;
+    background-color: #7ed9ae;
+}
+header h1
+{
+    font-size: 100px;
+    font-family: 'Handlee', cursive;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #0d0f17; 
+}
+
+/* styling for the people division */
+#people
+{
+    margin-top: 40px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    background-color: #0d0f17;
+    color: white;
+    border: white 5px solid;
+}
+/* styling for the divisions within the people division */
+#people div
+{
+    width: 45%;
+    padding: 20px;
+}
+/* styling for the first headings within the people division */
+#people h1
+{
+    font-variant: small-caps;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+/* styling for the images within the people division */
+#people img
+{
+    width: 25%;
+    float: right;
+    margin: 10px;
+    border: white 2px solid;
+}
+#people div:nth-child(odd) img
+{
+    float: left;
+}
+/* styling for the paragraphs within the people division */
+#people p
+{
+    font-style: italic;
+    font-weight: 300;
+    font-size: 17px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+/* styling for the buttons within the people division */
+#people button
+{
+    background-color: #7ed9ae;
+    padding: 5px 110px;
+    font-size: 20px;
+    font-variant: small-caps;
+    margin: 10px;
+    margin-left: 0px;
+    font-family: 'Handlee', cursive;
+    letter-spacing: 4px;
+}
+
+/* styling for the footer elements */
+footer 
+{
+    background-color: #7ed9ae;
+    padding: 20px;
+    padding-bottom: 30px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    color: #0d0f17;
+    margin-top: 35px;
+  }
+  footer span 
+  {
+    float: right;
+    text-align: right;
+    font-size: 17.5px;
+    color: #0d0f17;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+  }
+  
+  footer a 
+  {
+    text-decoration: none;
+    float: left;
+    margin-right: 20px;
+    font-size: 17.5px;
+    color: #0d0f17;
+  }

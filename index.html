@@ -1,0 +1,554 @@
+<!-- Program Name: Exam 3
+Programmer Name: Emmaleigh Stone
+Date: 11/6/2022 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- link the javascript library for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- link the css style sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- link the footer social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- link the google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@300;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <title>Exam 3 - Emmaleigh Stone</title>
+  </head>
+  <body>
+    <!-- beginning of innerHTML javascript -->
+    <script>
+      // when document first loads, complete the function
+      $(document).ready(function() 
+      {
+          // call the api for get popular people using themoviedb.org
+          // if a success, run function using the results under variable call
+          $.ajax({url: "https://api.themoviedb.org/3/person/popular?api_key=a681a284c79655287408251f708d8d10&language=en-US&page=1", success: function(call) 
+          {
+            // for loop for running through all array results from the api using the array length
+            for (i = 0; i< call.results.length; i++)
+              {
+                  // use variable img to create image element
+                  var img = document.createElement("img");
+                  // use variable name to create first heading element
+                  var name = document.createElement("h1");
+                  // use variable desc to create paragraph element
+                  var desc = document.createElement("p");
+                  // use variable button to create button element
+                  var button = document.createElement("button");
+                  // use variable id to create sixth heading element
+                  var id = document.createElement("h6");
+                  // set img variable's id to i value plus phrase img
+                  img.id = i + "img";
+                  // set name variable's id to i value plus phrase name
+                  name.id = i + "name";
+                  // set desc variable's id to i value plus phrase desc
+                  desc.id = i + "desc";
+                  // set button variable's id to i value plus phrase btn
+                  button.id = i + "btn";
+                  // set id variable's id to i value plus phrase id
+                  id.id = i + "id";
+                  // set img variable's style display to none
+                  img.style.display = "none";
+                  // set the text of name variable to name from api array results of i value
+                  name.innerHTML = call.results[i].name;
+                  // set desc variable's style display to none
+                  desc.style.display = "none";
+                  // set button variable's inner text to the phrase details
+                  button.innerText = "details";
+                  // set the text of id variable to id from api array results of i value
+                  id.innerHTML = call.results[i].id;
+                  // set id variable's style display to none
+                  id.style.display = "none";
+                  // create a new division under the people division with an id of i value
+                  $("#people").append("<div id='" + i + "'>");
+                  // append the new division of i value with the img variable
+                  $("#" + i).append(img);
+                  // append the new division of i value with the name variable
+                  $("#" + i).append(name);
+                  // append the new division of i value with the desc variable
+                  $("#" + i).append(desc);
+                  // append the new division of i value with the button variable
+                  $("#" + i).append(button);
+                  // append the new division of i value with the id variable
+                  $("#" + i).append(id);
+                  // append the new division of i value with a closing division tag
+                  $("#" + i).append("</div>");
+              };// end of for loop
+              // create a click event for the button with "0btn" as id
+              $(document).delegate("#0btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 0id as the id
+                var idText = document.getElementById("0id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 0desc as the id
+                  var descItem = document.getElementById("0desc");
+                  // set imgItem variable as the document element with 0img as the id
+                  var imgItem = document.getElementById("0img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "1btn" as id
+              $(document).delegate("#1btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 1id as the id
+                var idText = document.getElementById("1id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 1desc as the id
+                  var descItem = document.getElementById("1desc");
+                  // set imgItem variable as the document element with 1img as the id
+                  var imgItem = document.getElementById("1img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "2btn" as id
+              $(document).delegate("#2btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 2id as the id
+                var idText = document.getElementById("2id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 2desc as the id
+                  var descItem = document.getElementById("2desc");
+                  // set imgItem variable as the document element with 2img as the id
+                  var imgItem = document.getElementById("2img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "3btn" as id
+              $(document).delegate("#3btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 3id as the id
+                var idText = document.getElementById("3id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 3desc as the id
+                  var descItem = document.getElementById("3desc");
+                  // set imgItem variable as the document element with 3img as the id
+                  var imgItem = document.getElementById("3img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "4btn" as id
+              $(document).delegate("#4btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 4id as the id
+                var idText = document.getElementById("4id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 4desc as the id
+                  var descItem = document.getElementById("4desc");
+                  // set imgItem variable as the document element with 4img as the id
+                  var imgItem = document.getElementById("4img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "5btn" as id
+              $(document).delegate("#5btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 5id as the id
+                var idText = document.getElementById("5id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 5desc as the id
+                  var descItem = document.getElementById("5desc");
+                  // set imgItem variable as the document element with 5img as the id
+                  var imgItem = document.getElementById("5img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "6btn" as id
+              $(document).delegate("#6btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 6id as the id
+                var idText = document.getElementById("6id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 6desc as the id
+                  var descItem = document.getElementById("6desc");
+                  // set imgItem variable as the document element with 6img as the id
+                  var imgItem = document.getElementById("6img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "7btn" as id
+              $(document).delegate("#7btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 7id as the id
+                var idText = document.getElementById("7id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 7desc as the id
+                  var descItem = document.getElementById("7desc");
+                  // set imgItem variable as the document element with 7img as the id
+                  var imgItem = document.getElementById("7img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "8btn" as id
+              $(document).delegate("#8btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 8id as the id
+                var idText = document.getElementById("8id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 8desc as the id
+                  var descItem = document.getElementById("8desc");
+                  // set imgItem variable as the document element with 8img as the id
+                  var imgItem = document.getElementById("8img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "9btn" as id
+              $(document).delegate("#9btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 9id as the id
+                var idText = document.getElementById("9id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 9desc as the id
+                  var descItem = document.getElementById("9desc");
+                  // set imgItem variable as the document element with 9img as the id
+                  var imgItem = document.getElementById("9img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "10btn" as id
+              $(document).delegate("#10btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 10id as the id
+                var idText = document.getElementById("10id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 10desc as the id
+                  var descItem = document.getElementById("10desc");
+                  // set imgItem variable as the document element with 10img as the id
+                  var imgItem = document.getElementById("10img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "11btn" as id
+              $(document).delegate("#11btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 11id as the id
+                var idText = document.getElementById("11id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 11desc as the id
+                  var descItem = document.getElementById("11desc");
+                  // set imgItem variable as the document element with 11img as the id
+                  var imgItem = document.getElementById("11img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "12btn" as id
+              $(document).delegate("#12btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 12id as the id
+                var idText = document.getElementById("12id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 12desc as the id
+                  var descItem = document.getElementById("12desc");
+                  // set imgItem variable as the document element with 12img as the id
+                  var imgItem = document.getElementById("12img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "13btn" as id
+              $(document).delegate("#13btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 13id as the id
+                var idText = document.getElementById("13id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 13desc as the id
+                  var descItem = document.getElementById("13desc");
+                  // set imgItem variable as the document element with 13img as the id
+                  var imgItem = document.getElementById("13img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "14btn" as id
+              $(document).delegate("#14btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 14id as the id
+                var idText = document.getElementById("14id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 14desc as the id
+                  var descItem = document.getElementById("14desc");
+                  // set imgItem variable as the document element with 14img as the id
+                  var imgItem = document.getElementById("14img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "15btn" as id
+              $(document).delegate("#15btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 15id as the id
+                var idText = document.getElementById("15id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                 // set descItem variable as the document element with 15desc as the id
+                  var descItem = document.getElementById("15desc");
+                  // set imgItem variable as the document element with 15img as the id
+                  var imgItem = document.getElementById("15img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "16btn" as id
+              $(document).delegate("#16btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 16id as the id
+                var idText = document.getElementById("16id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 16desc as the id
+                  var descItem = document.getElementById("16desc");
+                  // set imgItem variable as the document element with 16img as the id
+                  var imgItem = document.getElementById("16img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "17btn" as id
+              $(document).delegate("#17btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 17id as the id
+                var idText = document.getElementById("17id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 17desc as the id
+                  var descItem = document.getElementById("17desc");
+                  // set imgItem variable as the document element with 17img as the id
+                  var imgItem = document.getElementById("17img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "18btn" as id
+              $(document).delegate("#18btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 18id as the id
+                var idText = document.getElementById("18id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 18desc as the id
+                  var descItem = document.getElementById("18desc");
+                  // set imgItem variable as the document element with 18img as the id
+                  var imgItem = document.getElementById("18img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+              // create a click event for the button with "19btn" as id
+              $(document).delegate("#19btn", "click", function(event)
+              {
+                // set idText variable as the inner text of document element with 19id as the id
+                var idText = document.getElementById("19id").innerText;
+                // call the api for get details people using themoviedb.org
+                // if a success, run function using the results under variable call
+                $.ajax({url: "https://api.themoviedb.org/3/person/"+ idText + "?api_key=a681a284c79655287408251f708d8d10&language=en-US", success: function(call) 
+               {
+                  // set descItem variable as the document element with 19desc as the id
+                  var descItem = document.getElementById("19desc");
+                  // set imgItem variable as the document element with 19img as the id
+                  var imgItem = document.getElementById("19img");
+                  // toggle descItem variable int changing display
+                  $(descItem).toggle(500);
+                  // toggle imgItem variable into changing display
+                  $(imgItem).toggle(500);
+                  // set inner HTML of descItem variable to the api call's biography value
+                  descItem.innerHTML = call.biography;
+                  // set the source of imgItem variable to the api call's profile_path value
+                  imgItem.src =  "https://image.tmdb.org/t/p/w500" + call.profile_path;
+                }}); // end of ajax function
+              });
+            }}); // end of ajax function
+      }); // end of document ready function
+  </script>
+  <!-- end of innerHTML javascript -->
+  <header>
+    <h1>Famous People</h1>
+  </header>
+  <!-- division that holds all elements created in the inner javascript above -->
+   <div id="people"></div>
+   <footer><a href="https://www.instagram.com/emma.g.stone/" target="_blank" class="fa fa-instagram"></a>
+    <a href="https://www.facebook.com/emma.stone.39566" target="_blank" class="fa fa-facebook"></a>
+    <a href="mailto: emmaleighgabriellestone@gmail.com" target="_blank" class="fa fa-envelope"></a>
+    <a href="tel:5733003639" target="_blank" class="fa fa-phone"></a>
+    <span>&copy;2022 Emmaleigh Stone</span>
+  </footer>
+  </body>
+</html>
