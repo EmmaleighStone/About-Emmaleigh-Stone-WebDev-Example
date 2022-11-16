@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midterm Project", "Midterm Project\Midterm Project.csproj", "{B5262C20-E2B2-46BB-8BC4-059AD513456C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5262C20-E2B2-46BB-8BC4-059AD513456C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5262C20-E2B2-46BB-8BC4-059AD513456C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5262C20-E2B2-46BB-8BC4-059AD513456C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5262C20-E2B2-46BB-8BC4-059AD513456C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8502DE04-A104-45FA-B784-291D654C4CB7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://cisteam.otc.edu/tfs/es0932003
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Midterm\u0020Project\\Midterm\u0020Project.csproj
+		SccProjectName1 = Midterm\u0020Project
+		SccLocalPath1 = Midterm\u0020Project
+	EndGlobalSection
+EndGlobal
